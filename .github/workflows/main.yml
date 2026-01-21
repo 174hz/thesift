@@ -1,8 +1,14 @@
 name: Daily Sift
+
 on:
-  workflow_dispatch:
+  schedule:
+    # This runs at 13:00 UTC (8:00 AM EST) every day
+    - cron: '0 13 * * *'
+  workflow_dispatch:      # Allows you to still run it manually whenever you want
+
 permissions:
-  contents: write  # This explicitly tells the robot it has permission
+  contents: write         # Permission for the robot to save new posts
+
 jobs:
   build:
     runs-on: ubuntu-latest
