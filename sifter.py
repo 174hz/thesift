@@ -1,23 +1,19 @@
 import os
 import google.generativeai as genai
 
-# 1. Setup the AI Brain
+# Setup AI - Using a stable model version
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-1.5-pro')
 
 def run_sifter():
-    # 2. We ask the AI to generate a high-value review for a top product
-    prompt = """Write a 150-word engaging blog post about the Logitech MX Master 3S mouse. 
-    Focus on why it's the best for office productivity. 
-    Include 3 bullet points for key features and a 'Who Is This For?' section.
-    End with a reminder to check the links below."""
+    # Targeted prompt for high-value affiliate content
+    prompt = "Write a 150-word blog post about the Logitech MX Master 3S mouse. Focus on ergonomics and productivity. Include 3 bullet points and a 'Why Buy' section."
     
     response = model.generate_content(prompt)
     
-    # 3. This format tells Jekyll how to display the video and the text
     post_content = f"""---
 layout: post
-title: "The Ultimate Productivity Tool: MX Master 3S Review"
+title: "Sifted: The Ultimate Office Mouse (MX Master 3S)"
 date: 2026-01-21
 youtube_id: "twbL6619v-4"
 ---
@@ -25,15 +21,18 @@ youtube_id: "twbL6619v-4"
 {response.text}
 
 ---
-### Suggested Gear
-* **Top Pick:** [Logitech MX Master 3S](https://amzn.to/3S-example)
-* **Budget Option:** [Logitech M720 Triathlon](https://amzn.to/m720-example)
+### Featured Gear
+* **Top Choice:** [Logitech MX Master 3S](https://amzn.to/3S-example)
 
 *Disclosure: As an Amazon Associate, I earn from qualifying purchases.*
 """
-    # 4. Save the file
+    # Ensure the folder exists and save
+    if not os.path.exists('_posts'):
+        os.makedirs('_posts')
+        
     with open("_posts/2026-01-21-ai-sift.md", "w") as f:
         f.write(post_content)
+    print("AI Post Created Successfully!")
 
 if __name__ == "__main__":
     run_sifter()
