@@ -7,6 +7,7 @@ from google import genai
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 # 2. YOUR CATALOG: The high-ticket products you chose
+# Format: ["Product Name", "YouTube ID", "Affiliate Link"]
 PRODUCTS = [
     ["Herman Miller Aeron Chair", "8332532177075038213", "https://amzn.to/49zgnxI"],
     ["Apple Studio Display", "15844307808690829027", "https://amzn.to/4pVZPVx"],
@@ -14,7 +15,10 @@ PRODUCTS = [
     ["Logitech MX Creative Console", "2027506961957546871", "https://amzn.to/4b7Clch"],
     ["BenQ ScreenBar Halo", "15081320089479402942", "https://amzn.to/49SjeR7"],
     ["Epson EcoTank Pro ET-5850", "3286438268970062756", "https://amzn.to/4sT006G"],
-    ["Logitech MX Master 3S Mouse", "twbL6619v-4", "https://amzn.to/4qXqSRc"]
+    ["Logitech MX Master 3S Mouse", "twbL6619v-4", "https://amzn.to/4qXqSRc"],
+    ["Sony WH-1000XM5 Headphones", "UZvUH8tejj8", "https://amzn.to/42O7I3Z"],
+    ["TP-Link Deco XE75 Pro Mesh System", "OkBmKQcteC4", "https://amzn.to/3P1jR6h"],
+    ["Elgato Stream Deck MK.2", "jT2eiBaFYJU", "https://amzn.to/3OJWqJv"]
 ]
 
 def run_sifter():
@@ -22,10 +26,12 @@ def run_sifter():
     product_name, yt_id, aff_link = random.choice(PRODUCTS)
     date_str = datetime.now().strftime("%Y-%m-%d")
     
+    # Prompt optimized for professional, high-ticket "Sift" voice
     prompt = (
-        f"Write a 200-word professional tech review for the {product_name}. "
-        "Focus on why it is the best choice for a high-end productivity setup. "
-        "Include 3 bullet points of key specs."
+        f"Write a 250-word elite tech review for the {product_name}. "
+        "Focus on craftsmanship, long-term value, and productivity benefits for a professional setup. "
+        "Include 3-4 bullet points of high-level technical specifications. "
+        "The tone should be authoritative but conversational."
     )
     
     try:
@@ -34,6 +40,7 @@ def run_sifter():
             contents=prompt
         )
         
+        # Build Markdown with UI classes for the new style.css
         post_content = f"""---
 layout: post
 title: "TheSift: Is the {product_name} Worth the Investment?"
@@ -45,10 +52,12 @@ youtube_id: "{yt_id}"
 
 ---
 
-### Sift Verdict
-If you are looking to upgrade your setup, the **{product_name}** is a top-tier contender. 
+### The Sift Verdict
+The **{product_name}** represents a premium standard in modern workspace tech. If you are building a setup designed for peak performance, this is an essential addition.
 
-* **Check Price on Amazon:** [{product_name}]({aff_link})
+<div style="text-align: center; margin: 40px 0;">
+    <a href="{aff_link}" class="buy-button">Check Current Price on Amazon</a>
+</div>
 
 *As an Amazon Associate, I earn from qualifying purchases.*
 """
