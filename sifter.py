@@ -1,19 +1,18 @@
 import os
 import google.generativeai as genai
 
-# Setup AI - Using a stable model version
+# Setup AI - Using the 'latest' tag to avoid 404 errors
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-pro')
+model = genai.GenerativeModel('gemini-1.5-flash-latest')
 
 def run_sifter():
-    # Targeted prompt for high-value affiliate content
-    prompt = "Write a 150-word blog post about the Logitech MX Master 3S mouse. Focus on ergonomics and productivity. Include 3 bullet points and a 'Why Buy' section."
+    prompt = "Write a 150-word blog post about the Logitech MX Master 3S mouse. Focus on why it's a top-tier productivity tool. Include 3 bullet points."
     
     response = model.generate_content(prompt)
     
     post_content = f"""---
 layout: post
-title: "Sifted: The Ultimate Office Mouse (MX Master 3S)"
+title: "TheSift: Why the MX Master 3S Rules the Desk"
 date: 2026-01-21
 youtube_id: "twbL6619v-4"
 ---
@@ -22,17 +21,14 @@ youtube_id: "twbL6619v-4"
 
 ---
 ### Featured Gear
-* **Top Choice:** [Logitech MX Master 3S](https://amzn.to/3S-example)
+* **Check Price:** [Logitech MX Master 3S](https://amzn.to/example)
 
-*Disclosure: As an Amazon Associate, I earn from qualifying purchases.*
+*As an Amazon Associate, I earn from qualifying purchases.*
 """
-    # Ensure the folder exists and save
-    if not os.path.exists('_posts'):
-        os.makedirs('_posts')
-        
+    os.makedirs('_posts', exist_ok=True)
     with open("_posts/2026-01-21-ai-sift.md", "w") as f:
         f.write(post_content)
-    print("AI Post Created Successfully!")
+    print("Success: AI post generated.")
 
 if __name__ == "__main__":
     run_sifter()
