@@ -1,16 +1,16 @@
 name: Daily Sift
-
 on:
-  schedule:
-    - cron: '0 0 * * *' # Runs every night at midnight
-  workflow_dispatch: # Allows you to run it manually for testing
-
+  workflow_dispatch:
+permissions:
+  contents: write  # This explicitly tells the robot it has permission
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          token: ${{ github.token }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -18,18 +18,17 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: |
-          pip install youtube-transcript-api google-generativeai
+        run: pip install google-generativeai
 
       - name: Run Sifter
         run: python sifter.py
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Commit changes
+      - name: Commit and Push
         run: |
           git config --global user.name 'SifterBot'
           git config --global user.email 'bot@thesift.com'
           git add .
           git commit -m "Automated Sift update" || exit 0
-          git push
+          git push origin main
