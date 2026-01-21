@@ -1,5 +1,11 @@
 title: The Sift
 description: Automated Tech Reviews & Curated Productivity Gear
+
+# This tells GitHub exactly where your site is located
+baseurl: "/thesift" 
+url: "https://174hz.github.io"
+
+# Theme settings
 remote_theme: jekyll/minima
 plugins:
   - jekyll-feed
