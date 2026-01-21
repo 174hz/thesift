@@ -1,25 +1,39 @@
 import os
+import google.generativeai as genai
 
-# 1. This is where you tell the robot what to look for
-NICHE_KEYWORDS = "Best Amazon Kitchen Gadgets 2026"
+# 1. Setup the AI Brain
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+model = genai.GenerativeModel('gemini-1.5-flash')
 
-def create_test_post():
-    # This creates a file that Jekyll can read
-    post_content = """---
+def run_sifter():
+    # 2. We ask the AI to generate a high-value review for a top product
+    prompt = """Write a 150-word engaging blog post about the Logitech MX Master 3S mouse. 
+    Focus on why it's the best for office productivity. 
+    Include 3 bullet points for key features and a 'Who Is This For?' section.
+    End with a reminder to check the links below."""
+    
+    response = model.generate_content(prompt)
+    
+    # 3. This format tells Jekyll how to display the video and the text
+    post_content = f"""---
 layout: post
-title: "Automated Sift: Cool Gadgets"
+title: "The Ultimate Productivity Tool: MX Master 3S Review"
 date: 2026-01-21
-youtube_id: "dQw4w9WgXcQ"
+youtube_id: "twbL6619v-4"
 ---
 
-### Why we Sifted this:
-This video shows some of the best-rated gadgets this month. 
-Check out our affiliate links below to support the site!
+{response.text}
+
+---
+### Suggested Gear
+* **Top Pick:** [Logitech MX Master 3S](https://amzn.to/3S-example)
+* **Budget Option:** [Logitech M720 Triathlon](https://amzn.to/m720-example)
+
+*Disclosure: As an Amazon Associate, I earn from qualifying purchases.*
 """
-    # This saves the file into your _posts folder automatically
-    with open("_posts/2026-01-21-auto-post.md", "w") as f:
+    # 4. Save the file
+    with open("_posts/2026-01-21-ai-sift.md", "w") as f:
         f.write(post_content)
-    print("Post created successfully!")
 
 if __name__ == "__main__":
-    create_test_post()
+    run_sifter()
