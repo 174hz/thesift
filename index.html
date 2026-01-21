@@ -1,0 +1,27 @@
+---
+layout: default
+title: The Sift | Elite Productivity Gear
+---
+
+<div class="hero">
+  <h1>Elite Productivity Gear, Sifted.</h1>
+  <p>Expert analysis on the world's best tech to help you build your ultimate workspace.</p>
+</div>
+
+<div class="post-grid">
+  {% for post in site.posts %}
+    <article class="post-card">
+      <a href="{{ post.url }}" class="card-link">
+        <div class="post-image">
+          <img src="https://img.youtube.com/vi/{{ post.youtube_id }}/maxresdefault.jpg" alt="{{ post.title }}">
+        </div>
+        <div class="post-content">
+          <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+          <h2>{{ post.title }}</h2>
+          <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
+          <span class="read-more">Read the Sift →</span>
+        </div>
+      </a>
+    </article>
+  {% endfor %}
+</div>
