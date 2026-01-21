@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | The Sift</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header style="padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+        <strong style="font-size: 1.5rem; letter-spacing: -1px;">THE SIFT</strong>
+        <nav>
+            <a href="/" style="margin-left: 20px; text-decoration: none; color: #333;">Home</a>
+            <a href="/about" style="margin-left: 20px; text-decoration: none; color: #333;">About</a>
+        </nav>
+    </header>
+
+    <main style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        {{ content }}
+    </main>
+
+    <footer style="margin-top: 100px; padding: 40px; background: #f9f9f9; text-align: center; font-size: 0.9rem; color: #666;">
+        <p>© 2026 The Sift. Expertly Curated Productivity Gear.</p>
+        <p><em>As an Amazon Associate, I earn from qualifying purchases.</em></p>
+    </footer>
+</body>
+</html>
