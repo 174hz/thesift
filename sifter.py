@@ -4,11 +4,9 @@ from datetime import datetime
 from google import genai
 
 # 1. SETUP: Connect to the Gemini AI
-# Make sure GEMINI_API_KEY is set in your GitHub Secrets!
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 # 2. YOUR CATALOG: The high-ticket products you chose
-# Format: ["Product Name", "YouTube ID", "Affiliate Link"]
 PRODUCTS = [
     ["Herman Miller Aeron Chair", "8332532177075038213", "https://amzn.to/49zgnxI"],
     ["Apple Studio Display", "15844307808690829027", "https://amzn.to/4pVZPVx"],
@@ -20,27 +18,22 @@ PRODUCTS = [
 ]
 
 def run_sifter():
-    # Pick one product at random from your list
+    # Pick one product at random
     product_name, yt_id, aff_link = random.choice(PRODUCTS)
-    
-    # Generate the current date for the blog post
     date_str = datetime.now().strftime("%Y-%m-%d")
     
-    # The Prompt: Telling the AI how to write the review
     prompt = (
         f"Write a 200-word professional tech review for the {product_name}. "
         "Focus on why it is the best choice for a high-end productivity setup. "
-        "Use a sophisticated but accessible tone. Include 3 bullet points of key specs."
+        "Include 3 bullet points of key specs."
     )
     
     try:
-        # Ask Gemini to write the content
         response = client.models.generate_content(
             model="gemini-2.0-flash", 
             contents=prompt
         )
         
-        # Build the Markdown file content (Jekyll format)
         post_content = f"""---
 layout: post
 title: "TheSift: Is the {product_name} Worth the Investment?"
@@ -60,12 +53,18 @@ If you are looking to upgrade your setup, the **{product_name}** is a top-tier c
 *As an Amazon Associate, I earn from qualifying purchases.*
 """
 
-        # Create the filename (e.g., 2026-01-21-apple-studio-display.md)
         clean_name = product_name.lower().replace(" ", "-")
         filename = f"_posts/{date_str}-{clean_name}.md"
         
-        # Ensure the _posts folder exists
         os.makedirs('_posts', exist_ok=True)
         
-        # Write the file
-        with open(filename, "w", encoding="utf-
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(post_content)
+            
+        print(f"✅ Successfully sifted: {product_name}")
+        
+    except Exception as e:
+        print(f"❌ Error during sift: {e}")
+
+if __name__ == "__main__":
+    run_sifter()
