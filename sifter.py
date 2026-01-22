@@ -6,7 +6,7 @@ from google import genai
 # 1. SETUP: Connect to the Gemini AI
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-# 2. THE MASTER CATALOG: Verified YouTube IDs and Direct Amazon Links
+# 2. THE MASTER CATALOG: Verified YouTube IDs and Your Specific Links
 PRODUCTS = [
     ["Herman Miller Aeron Chair", "h_mD_3iYvC8", "https://amzn.to/3sn62xX"],
     ["Apple Studio Display", "MvT03E_8i7k", "https://amzn.to/4pVZPVx"],
@@ -15,7 +15,7 @@ PRODUCTS = [
     ["BenQ ScreenBar Halo", "m4m9WnF8_S4", "https://amzn.to/3VjLVPL"],
     ["Epson EcoTank Pro ET-5850", "DovL9lFkI0s", "https://amzn.to/4sT006G"],
     ["Logitech MX Master 3S Mouse", "twbL6619v-4", "https://amzn.to/4qXqSRc"],
-    ["Sony WH-1000XM5 Headphones", "UZvUH8tejj8", "https://amzn.to/42O7I3Z"],
+    ["Sony WH-1000XM5 Headphones", "UZvUH8tejj8", "https://amzn.to/4jVxwoK"], # Updated with your link
     ["Keychron Q6 Pro Keyboard", "7C_hE0-E6_M", "https://amzn.to/43fD3N8"],
     ["Elgato Stream Deck MK.2", "jT2eiBaFYJU", "https://amzn.to/3Seekqd"]
 ]
@@ -42,7 +42,7 @@ def run_sifter():
             contents=prompt
         )
         
-        # Build Markdown - Added target="_blank" to the anchor tag below
+        # Build Markdown with target="_blank" for new tab opening
         post_content = f"""---
 layout: post
 title: "TheSift: Is the {product_name} Worth the Investment?"
@@ -58,7 +58,7 @@ youtube_id: "{yt_id}"
 The **{product_name}** represents a premium standard in modern workspace tech.
 
 <div style="text-align: center; margin: 40px 0;">
-    <a href="{aff_link}" class="buy-button" target="_blank">Check Current Price on Amazon</a>
+    <a href="{aff_link}" class="buy-button" target="_blank" rel="noopener noreferrer">Check Current Price on Amazon</a>
 </div>
 
 *As an Amazon Associate, I earn from qualifying purchases.*
