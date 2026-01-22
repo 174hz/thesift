@@ -1,6 +1,5 @@
 ---
 ---
-// 1. DEFINE COLOR THEMES
 :root {
   --bg-color: #ffffff;
   --text-color: #111111;
@@ -19,49 +18,72 @@
   --footer-bg: #000000;
 }
 
-// 2. APPLY VARIABLES
 body {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.hero {
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--border-color);
-  padding: 100px 20px;
-  text-align: center;
+.container {
+  max-width: 1000px; /* Limits width so logo isn't too far left */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// RESTORE THE TWO-BLOCK GRID
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 60px 0;
 }
 
 .post-card {
   text-decoration: none;
   color: inherit;
   .post-image {
-    background: var(--border-color);
+    width: 100%;
+    height: 300px;
+    background: var(--card-bg);
     border-radius: 4px;
     overflow: hidden;
-    height: 320px;
+    margin-bottom: 15px;
     img { width: 100%; height: 100%; object-fit: cover; }
   }
 }
 
+// CENTERED FOOTER
 .site-footer {
   background: var(--footer-bg);
   color: #fff;
-  padding: 60px 0;
+  padding: 80px 0;
+  text-align: center; /* Centers everything in footer */
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked for a cleaner centered look */
+    gap: 40px;
+    justify-content: center;
+  }
+
+  h4 { color: #fff; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  a { color: #999; text-decoration: none; &:hover { color: #fff; } }
 }
 
-// 3. DARK MODE TOGGLE BUTTON STYLE
 #theme-toggle {
   background: none;
   border: 1px solid var(--text-color);
   color: var(--text-color);
-  padding: 5px 12px;
+  padding: 6px 15px;
   cursor: pointer;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .post-grid { grid-template-columns: 1fr; }
 }
