@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | THE SIFT{% else %}THE SIFT | Elite Tech Curated{% endif %}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="site-wrapper header-flex">
+        <div class="site-wrapper">
             <a href="{{ site.baseurl }}/" class="logo">THE SIFT</a>
             <nav class="main-nav">
                 <a href="{{ site.baseurl }}/">Home</a>
@@ -24,7 +24,7 @@
     </main>
 
     <footer class="main-footer">
-        <div class="site-wrapper">
+        <div class="footer-inner">
             <div class="about-sifter">
                 <h3>About The Sifter</h3>
                 <p>A disciplined exploration of high-end productivity tools. We analyze the intersection of industrial design and digital performance for the modern professional.</p>
@@ -45,7 +45,7 @@
                 <li><a href="{{ '/terms' | relative_url }}">Terms of Use</a></li>
             </ul>
 
-            <p class="copyright">&copy; 2026 THE SIFT. All Rights Reserved.</p>
+            <p class="copyright">&copy; {{ "now" | date: "%Y" }} THE SIFT. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
