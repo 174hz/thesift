@@ -1,29 +1,41 @@
 ---
 layout: default
 ---
-<article class="post-container">
-    <a href="{{ site.baseurl }}/" style="text-decoration: none; color: var(--muted-text); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">&larr; Back to Sift</a>
+<div class="site-wrapper">
+    <article class="post-article">
+        <a href="{{ site.baseurl }}/" class="back-link">&larr; Back to Sift</a>
 
-    <h1 style="font-size: 2.2rem; margin: 25px 0 10px 0;">{{ page.title }}</h1>
-    
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding: 15px 0; margin-bottom: 30px;">
-        <div style="display: flex; gap: 15px;">
-            <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}" target="_blank" style="text-decoration: none; font-size: 0.8rem; color: var(--text-color);">Share on X</a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank" style="text-decoration: none; font-size: 0.8rem; color: var(--text-color);">LinkedIn</a>
+        <header class="post-header">
+            <h1 class="post-title-main">{{ page.title }}</h1>
+            <div class="post-meta-bar">
+                <span>Sifted on {{ page.date | date: "%B %d, %Y" }}</span>
+                <div class="share-links">
+                    <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}" target="_blank">X</a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
         </div>
-        
-        <div id="feedback-widget" style="display: flex; gap: 10px; align-items: center;">
-            <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted-text);">Helpful?</span>
-            <button onclick="alert('Thanks for your feedback!')" style="background: none; border: 1px solid var(--border-color); cursor: pointer; border-radius: 4px; padding: 4px 8px;">👍</button>
-            <button onclick="alert('Thanks for your feedback!')" style="background: none; border: 1px solid var(--border-color); cursor: pointer; border-radius: 4px; padding: 4px 8px;">👎</button>
+
+        <div class="post-body-content">
+            {{ content }}
         </div>
-    </div>
 
-    <div class="video-container" style="margin-bottom: 30px; border-radius: 4px; overflow: hidden; background: #000; aspect-ratio: 16/9;">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="feedback-container">
+            <span class="feedback-label">Was this analysis helpful?</span>
+            <div class="feedback-buttons">
+                <button onclick="handleFeedback('up')" class="feedback-btn">👍</button>
+                <button onclick="handleFeedback('down')" class="feedback-btn">👎</button>
+            </div>
+        </div>
+    </article>
+</div>
 
-    <div class="post-content" style="line-height: 1.8;">
-        {{ content }}
-    </div>
-</article>
+<script>
+function handleFeedback(type) {
+    alert("Thank you! Your feedback helps us refine THE SIFT.");
+}
+</script>
