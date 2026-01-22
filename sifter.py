@@ -42,7 +42,7 @@ def run_sifter():
             contents=prompt
         )
         
-        # Build Markdown with correct YouTube ID for the video player
+        # Build Markdown - Added target="_blank" to the anchor tag below
         post_content = f"""---
 layout: post
 title: "TheSift: Is the {product_name} Worth the Investment?"
