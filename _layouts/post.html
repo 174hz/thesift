@@ -1,41 +1,22 @@
 ---
 layout: default
 ---
-<div class="site-wrapper">
-    <article class="post-article">
-        <a href="{{ site.baseurl }}/" class="back-link">&larr; Back to Sift</a>
+<article class="post-article">
+    <a href="{{ site.baseurl }}/" style="color: var(--muted-text); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase;">&larr; Back to Sift</a>
+    
+    <h1 style="font-size: 2.8rem; margin: 20px 0; letter-spacing: -1.5px; color: var(--text-color);">{{ page.title }}</h1>
+    
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+    </div>
 
-        <header class="post-header">
-            <h1 class="post-title-main">{{ page.title }}</h1>
-            <div class="post-meta-bar">
-                <span>Sifted on {{ page.date | date: "%B %d, %Y" }}</span>
-                <div class="share-links">
-                    <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}" target="_blank">X</a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank">LinkedIn</a>
-                </div>
-            </div>
-        </header>
+    <div class="post-content">
+        {{ content }}
+    </div>
 
-        <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <div class="post-body-content">
-            {{ content }}
-        </div>
-
-        <div class="feedback-container">
-            <span class="feedback-label">Was this analysis helpful?</span>
-            <div class="feedback-buttons">
-                <button onclick="handleFeedback('up')" class="feedback-btn">👍</button>
-                <button onclick="handleFeedback('down')" class="feedback-btn">👎</button>
-            </div>
-        </div>
-    </article>
-</div>
-
-<script>
-function handleFeedback(type) {
-    alert("Thank you! Your feedback helps us refine THE SIFT.");
-}
-</script>
+    <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); display: flex; gap: 20px; align-items: center;">
+        <span style="font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Helpful?</span>
+        <button onclick="alert('Feedback recorded.')" style="background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 5px 10px; cursor: pointer; border-radius: 4px;">👍</button>
+        <button onclick="alert('Feedback recorded.')" style="background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 5px 10px; cursor: pointer; border-radius: 4px;">👎</button>
+    </div>
+</article>
