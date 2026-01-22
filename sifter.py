@@ -6,18 +6,18 @@ from google import genai
 # 1. SETUP: Connect to the Gemini AI
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-# 2. YOUR CATALOG: The high-ticket products you chose
+# 2. YOUR CATALOG: The high-ticket products with VALID YouTube IDs
 # Format: ["Product Name", "YouTube ID", "Affiliate Link"]
 PRODUCTS = [
-    ["Herman Miller Aeron Chair", "8332532177075038213", "https://amzn.to/49zgnxI"],
-    ["Apple Studio Display", "15844307808690829027", "https://amzn.to/4pVZPVx"],
-    ["Samsung Odyssey Neo G9 Monitor", "3472987686007558214", "https://amzn.to/45SDcKi"],
-    ["Logitech MX Creative Console", "2027506961957546871", "https://amzn.to/4b7Clch"],
-    ["BenQ ScreenBar Halo", "15081320089479402942", "https://amzn.to/49SjeR7"],
-    ["Epson EcoTank Pro ET-5850", "3286438268970062756", "https://amzn.to/4sT006G"],
+    ["Herman Miller Aeron Chair", "h_mD_3iYvC8", "https://amzn.to/49zgnxI"],
+    ["Apple Studio Display", "MvT03E_8i7k", "https://amzn.to/4pVZPVx"],
+    ["Samsung Odyssey Neo G9 Monitor", "m31u_mshmEU", "https://amzn.to/45SDcKi"],
+    ["Logitech MX Creative Console", "p500P8-5XNo", "https://amzn.to/4b7Clch"],
+    ["BenQ ScreenBar Halo", "m4m9WnF8_S4", "https://amzn.to/49SjeR7"],
+    ["Epson EcoTank Pro ET-5850", "DovL9lFkI0s", "https://amzn.to/4sT006G"],
     ["Logitech MX Master 3S Mouse", "twbL6619v-4", "https://amzn.to/4qXqSRc"],
     ["Sony WH-1000XM5 Headphones", "UZvUH8tejj8", "https://amzn.to/42O7I3Z"],
-    ["TP-Link Deco XE75 Pro Mesh System", "OkBmKQcteC4", "https://amzn.to/3P1jR6h"],
+    ["Keychron Q6 Pro Keyboard", "7C_hE0-E6_M", "https://amzn.to/43fD3N8"],
     ["Elgato Stream Deck MK.2", "jT2eiBaFYJU", "https://amzn.to/3OJWqJv"]
 ]
 
@@ -31,7 +31,7 @@ def run_sifter():
         f"Write a 250-word elite tech review for the {product_name}. "
         "Focus on craftsmanship, long-term value, and productivity benefits for a professional setup. "
         "Include 3-4 bullet points of high-level technical specifications. "
-        "The tone should be authoritative but conversational."
+        "The tone should be authoritative but conversational. Do not use Markdown headings like # or ## in the body."
     )
     
     try:
@@ -62,7 +62,8 @@ The **{product_name}** represents a premium standard in modern workspace tech. I
 *As an Amazon Associate, I earn from qualifying purchases.*
 """
 
-        clean_name = product_name.lower().replace(" ", "-")
+        # Clean filename: lowercase, no spaces, no dots
+        clean_name = product_name.lower().replace(" ", "-").replace(".", "")
         filename = f"_posts/{date_str}-{clean_name}.md"
         
         os.makedirs('_posts', exist_ok=True)
