@@ -1,62 +1,62 @@
 ---
 ---
-// Premium Minimalist Variables
-$black: #1a1a1a;
-$gray: #f4f4f4;
-$accent: #007bff;
+// Color Palette
+$brand-dark: #0f0f0f;
+$brand-light: #f9f9f9;
+$accent-blue: #0070f3; // Premium Tech Blue
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  color: $black;
-  margin: 0;
-  line-height: 1.6;
-}
-
+// 1. Hero with Mesh Gradient
 .hero {
   text-align: center;
-  padding: 60px 20px;
-  background: $gray;
+  padding: 80px 20px;
+  background-color: #ffffff;
+  // Modern blue/purple mesh gradient
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(210,100%,95%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(230,100%,96%,1) 0, transparent 50%);
+  border-bottom: 1px solid #eaeaea;
   margin-bottom: 40px;
-  h1 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 10px; }
-  p { color: #666; font-size: 1.1rem; }
-}
 
-.post-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 20px;
-}
-
-.post-card {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  &:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-  
-  .card-link { text-decoration: none; color: inherit; }
-  
-  .post-image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  h1 { 
+    font-size: 3rem; 
+    font-weight: 800; 
+    letter-spacing: -0.05em; 
+    background: linear-gradient(to right, #000, #444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  
-  .post-content {
-    padding: 20px;
-    h2 { font-size: 1.25rem; margin: 10px 0; line-height: 1.3; }
-    p { font-size: 0.9rem; color: #555; }
-  }
+  p { color: #666; font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 }
 
-.buy-button {
-  display: inline-block;
-  background: $black;
-  color: #fff !important;
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  margin: 20px 0;
+// 2. High-End Footer
+.site-footer {
+  margin-top: 80px;
+  padding: 60px 20px 30px;
+  // Tonal dark gradient for distinction
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 100%);
+  border-top: 1px solid #eee;
+  color: #444;
+
+  .footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+  }
+
+  .footer-section h4 { font-weight: 700; color: #000; margin-bottom: 15px; }
+  .footer-links { list-style: none; padding: 0; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { text-decoration: none; color: #666; font-size: 0.9rem; transition: color 0.2s; }
+  .footer-links a:hover { color: #000; }
+
+  .footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #999;
+  }
 }
