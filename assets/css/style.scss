@@ -5,8 +5,8 @@
   --text-color: #111111;
   --border-color: #eeeeee;
   --muted-text: #666666;
-  --footer-bg: #f9f9f9; /* Distinct footer pattern */
-  --max-width: 1100px; /* The master alignment width */
+  --footer-bg: #f9f9f9; 
+  --max-width: 1100px; /* Logo and Hero align to this edge */
 }
 
 [data-theme="dark"] {
@@ -24,7 +24,7 @@ body {
     display: flex; flex-direction: column; align-items: center;
 }
 
-/* MASTER ALIGNMENT CONTAINER */
+/* MASTER ALIGNMENT: Logo & Hero edge-lock */
 .site-wrapper {
     width: 100%;
     max-width: var(--max-width);
@@ -32,7 +32,6 @@ body {
     box-sizing: border-box;
 }
 
-/* HEADER ALIGNMENT (RED BOXES) */
 .header-flex {
     display: flex;
     justify-content: space-between;
@@ -41,13 +40,11 @@ body {
 }
 
 .logo {
-    font-size: 3rem;
+    font-size: 3.2rem; /* Increased size per request */
     font-weight: 800;
     letter-spacing: -3px;
     text-decoration: none;
     color: var(--text-color);
-    
-    /* FADE IN EFFECT */
     opacity: 0;
     animation: fadeInLogo 1.2s ease-out forwards;
 }
@@ -62,31 +59,41 @@ body {
 }
 
 .main-nav a, #theme-cycle {
-    font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
+    font-size: 1rem; font-weight: 700; text-transform: uppercase;
     text-decoration: none; color: var(--text-color);
     background: none; border: none; cursor: pointer;
 }
 
-#theme-cycle {
-    background: var(--text-color); color: var(--bg-color);
-    padding: 6px 12px; border-radius: 4px;
-}
-
-/* VIDEO FIX: PRODUCTIVITY POWERHOUSE SIZE */
+/* VIDEO FIX: Full-Width Immersion */
 .video-container {
-    width: 100%;
+    width: 100%; 
+    max-width: 100%; /* Removes any shrinking */
     aspect-ratio: 16 / 9;
     margin: 40px 0;
     background: #000;
     border-radius: 4px;
     overflow: hidden;
+    display: block;
 }
 
 .video-container iframe {
-    width: 100%; height: 100%; border: none;
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
 }
 
-/* HERO & GRID ALIGNMENT */
+/* POST CONTENT: Ensuring text doesn't squeeze video */
+.post-content {
+    width: 100%;
+}
+
+.post-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* GRID & HERO */
 .latest-analysis-hero { width: 100%; margin-bottom: 50px; }
 .hero-image-container { 
     width: 100%; height: 420px; border-radius: 4px; 
@@ -94,25 +101,10 @@ body {
 }
 .hero-image-container img { width: 100%; height: 100%; object-fit: cover; }
 
-.post-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px;
-}
-
-/* FOOTER DISCIPLINE */
+/* FOOTER: Centered & Patterned */
 .main-footer {
     width: 100%; background: var(--footer-bg);
     padding: 100px 0; border-top: 1px solid var(--border-color);
     display: flex; justify-content: center;
 }
-
-.footer-inner { width: 100%; max-width: 650px; text-align: center; }
-.footer-legal-links { 
-    display: flex; justify-content: center; gap: 30px; 
-    list-style: none; padding: 0; margin-bottom: 30px; 
-}
-.footer-legal-links a { 
-    text-decoration: none; color: var(--muted-text); 
-    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-}
-
-.copyright { font-size: 0.7rem; color: var(--muted-text); text-transform: uppercase; opacity: 0.6; }
+.footer-inner { width: 100%; max-width: 700px; text-align: center; }
