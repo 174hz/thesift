@@ -27,26 +27,28 @@
         <div class="site-wrapper">
             <div class="about-sifter">
                 <h3>About The Sifter</h3>
-                <p>A disciplined exploration of high-end productivity tools. We analyze the intersection of industrial design and digital performance.</p>
+                <p>A disciplined exploration of high-end productivity tools. We analyze the intersection of industrial design and digital performance for the modern professional.</p>
             </div>
+            
+            <div class="social-bar">
+                <a href="#">X</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+
             <div class="footer-divider"></div>
-            <ul class="footer-links">
-                <li><a href="{{ site.baseurl }}/">Home</a></li>
-                <li><a href="{{ '/privacy-policy' | relative_url }}">Privacy</a></li>
-                <li><a href="{{ '/terms' | relative_url }}">Terms</a></li>
-            </ul>
-            <p class="copyright">&copy; 2026 THE SIFT.</p>
+            <p class="copyright">&copy; 2026 THE SIFT. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        const cycleBtn = document.getElementById('theme-cycle');
         const themes = ['light', 'dark', 'graphite', 'ivory'];
         let currentIdx = themes.indexOf(localStorage.getItem('theme') || 'light');
         if (currentIdx === -1) currentIdx = 0;
         document.documentElement.setAttribute('data-theme', themes[currentIdx]);
 
-        cycleBtn.addEventListener('click', () => {
+        document.getElementById('theme-cycle').addEventListener('click', () => {
             currentIdx = (currentIdx + 1) % themes.length;
             const newTheme = themes[currentIdx];
             document.documentElement.setAttribute('data-theme', newTheme);
@@ -55,3 +57,4 @@
     </script>
 </body>
 </html>
+ 
