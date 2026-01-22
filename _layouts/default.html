@@ -9,30 +9,33 @@
 </head>
 <body>
 
-    <header style="padding: 25px 0; border-bottom: 1px solid var(--border-color); background: var(--bg-color);">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="{{ site.baseurl }}/" style="text-decoration: none; color: var(--text-color);">
-                <strong style="font-size: 1.4rem; letter-spacing: -1.5px; text-transform: uppercase; font-weight: 800;">THE SIFT</strong>
-            </a>
-            <nav style="display: flex; align-items: center;">
-                <a href="{{ site.baseurl }}/" style="margin-right: 20px; text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">Home</a>
-                <button id="theme-cycle" style="background: var(--text-color); color: var(--bg-color); border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.65rem; font-weight: 700; text-transform: uppercase;">Mood</button>
+    <header class="main-header">
+        <div class="site-wrapper header-flex">
+            <a href="{{ site.baseurl }}/" class="logo">THE SIFT</a>
+            <nav class="main-nav">
+                <a href="{{ site.baseurl }}/">Home</a>
+                <button id="theme-cycle">Mood</button>
             </nav>
         </div>
     </header>
 
-    <main class="container" style="padding: 40px 0;">
+    <main class="site-wrapper">
         {{ content }}
     </main>
 
-    <footer class="site-footer" style="background: var(--footer-bg); padding: 40px 0; margin-top: 60px; text-align: center; border-top: 1px solid var(--border-color);">
-        <div class="container">
-            <ul style="display: flex; justify-content: center; gap: 25px; list-style: none; padding: 0; margin-bottom: 20px;">
-                <li><a href="{{ site.baseurl }}/" style="color: #666; text-decoration: none; font-size: 0.75rem;">Home</a></li>
-                <li><a href="{{ '/privacy-policy' | relative_url }}" style="color: #666; text-decoration: none; font-size: 0.75rem;">Privacy</a></li>
-                <li><a href="{{ '/terms' | relative_url }}" style="color: #666; text-decoration: none; font-size: 0.75rem;">Terms</a></li>
+    <footer class="main-footer">
+        <div class="site-wrapper">
+            <div class="about-sifter">
+                <h3>About The Sifter</h3>
+                <p>A disciplined exploration of high-end productivity tools. We analyze the intersection of industrial design and digital performance.</p>
+            </div>
+            <div class="footer-divider"></div>
+            <ul class="footer-links">
+                <li><a href="{{ site.baseurl }}/">Home</a></li>
+                <li><a href="{{ '/privacy-policy' | relative_url }}">Privacy</a></li>
+                <li><a href="{{ '/terms' | relative_url }}">Terms</a></li>
             </ul>
-            <p style="font-size: 0.65rem; color: #444; letter-spacing: 1px;">&copy; 2026 THE SIFT. ALL RIGHTS RESERVED.</p>
+            <p class="copyright">&copy; 2026 THE SIFT.</p>
         </div>
     </footer>
 
@@ -40,7 +43,6 @@
         const cycleBtn = document.getElementById('theme-cycle');
         const themes = ['light', 'dark', 'graphite', 'ivory'];
         let currentIdx = themes.indexOf(localStorage.getItem('theme') || 'light');
-
         if (currentIdx === -1) currentIdx = 0;
         document.documentElement.setAttribute('data-theme', themes[currentIdx]);
 
