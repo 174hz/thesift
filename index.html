@@ -2,41 +2,34 @@
 layout: default
 ---
 
-{% assign latest_post = site.posts.first %}
-{% if latest_post %}
-<section class="hero-container">
-    <div class="hero-tag">Latest Analysis</div>
-    <div class="hero-grid">
-        <div class="hero-image-box">
-            <a href="{{ latest_post.url | relative_url }}">
+<div class="site-wrapper">
+    {% assign latest_post = site.posts.first %}
+    {% if latest_post %}
+    <section class="latest-analysis-hero">
+        <a href="{{ latest_post.url | relative_url }}" class="hero-link-wrapper">
+            <div class="hero-image-container">
                 <img src="https://img.youtube.com/vi/{{ latest_post.youtube_id }}/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/{{ latest_post.youtube_id }}/hqdefault.jpg';">
-            </a>
-        </div>
-        <div class="hero-text-box">
-            <div class="hero-date">{{ latest_post.date | date: "%B %d, %Y" }}</div>
-            <h1 class="hero-title"><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h1>
-            <p class="hero-excerpt">{{ latest_post.content | strip_html | truncate: 180 }}</p>
-            <a href="{{ latest_post.url | relative_url }}" class="hero-link">Read the Full Sift &rarr;</a>
-        </div>
-    </div>
-</section>
-{% endif %}
-
-<div class="section-divider"></div>
-
-<div class="post-grid">
-    {% for post in site.posts offset:1 %}
-    <article class="post-card">
-        <a href="{{ post.url | relative_url }}">
-            <div class="post-image">
-                <img src="https://img.youtube.com/vi/{{ post.youtube_id }}/hqdefault.jpg">
-            </div>
-            <div class="post-card-content">
-                <span class="post-meta">{{ post.date | date: "%b %d, %Y" }}</span>
-                <h2 class="post-title">{{ post.title }}</h2>
-                <p class="post-excerpt">{{ post.content | strip_html | truncate: 90 }}</p>
+                <div class="hero-overlay">
+                    <span class="hero-badge">Latest Analysis</span>
+                    <h1 class="hero-title">{{ latest_post.title }}</h1>
+                </div>
             </div>
         </a>
-    </article>
-    {% endfor %}
+    </section>
+    {% endif %}
+
+    <div class="post-grid">
+        {% for post in site.posts offset:1 %}
+        <article class="post-card">
+            <a href="{{ post.url | relative_url }}">
+                <div class="post-image">
+                    <img src="https://img.youtube.com/vi/{{ post.youtube_id }}/hqdefault.jpg">
+                </div>
+                <div class="post-meta">{{ post.date | date: "%B %d, %Y" }}</div>
+                <h2 class="post-title">{{ post.title }}</h2>
+                <p class="post-excerpt">{{ post.content | strip_html | truncate: 110 }}</p>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
 </div>
