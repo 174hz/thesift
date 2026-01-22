@@ -5,14 +5,13 @@ from google import genai
 
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
+# DISCIPLINED PRODUCT LIST (No Test Items)
 PRODUCTS = [
     ["Herman Miller Aeron Chair", "h_mD_3iYvC8", "https://amzn.to/3sn62xX"],
     ["Apple Studio Display", "MvT03E_8i7k", "https://amzn.to/4pVZPVx"],
     ["Samsung Odyssey Neo G9 Monitor", "m31u_mshmEU", "https://amzn.to/45SDcKi"],
     ["Logitech MX Creative Console", "p500P8-5XNo", "https://amzn.to/4b7Clch"],
     ["BenQ ScreenBar Halo", "m4m9WnF8_S4", "https://amzn.to/3VjLVPL"],
-    ["Epson EcoTank Pro ET-5850", "DovL9lFkI0s", "https://amzn.to/4sT006G"],
-    ["Logitech MX Master 3S Mouse", "twbL6619v-4", "https://amzn.to/4qXqSRc"],
     ["Sony WH-1000XM5 Headphones", "UZvUH8tejj8", "https://amzn.to/4jVxwoK"],
     ["Keychron Q6 Pro Keyboard", "7C_hE0-E6_M", "https://amzn.to/43fD3N8"],
     ["Elgato Stream Deck MK.2", "jT2eiBaFYJU", "https://amzn.to/3Seekqd"]
@@ -20,20 +19,12 @@ PRODUCTS = [
 
 def run_sifter():
     product_name, yt_id, aff_link = random.choice(PRODUCTS)
-    aff_link = aff_link.strip() 
     date_str = datetime.now().strftime("%Y-%m-%d")
     
-    prompt = (
-        f"Write a 250-word elite tech review for the {product_name}. "
-        "Focus on craftsmanship and value. Use 3-4 technical bullet points. "
-        "Do not use # or ## headers."
-    )
+    prompt = f"Write an elite 250-word review for the {product_name}. Focus on aesthetic and performance. No headers."
     
     try:
-        response = client.models.generate_content(
-            model="gemini-2.0-flash", 
-            contents=prompt
-        )
+        response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
         
         post_content = f"""---
 layout: post
@@ -46,23 +37,16 @@ youtube_id: "{yt_id}"
 
 ---
 
-### The Sift Verdict
-The **{product_name}** represents a premium standard in modern workspace tech.
-
 <div style="text-align: center; margin: 40px 0;">
     <a href="{aff_link}" class="buy-button" target="_blank" rel="noopener noreferrer">Check Current Price on Amazon</a>
 </div>
-
-*As an Amazon Associate, I earn from qualifying purchases.*
 """
-        clean_name = product_name.lower().replace(" ", "-").replace(".", "")
+        clean_name = product_name.lower().replace(" ", "-")
         filename = f"_posts/{date_str}-{clean_name}.md"
         
-        os.makedirs('_posts', exist_ok=True)
         with open(filename, "w", encoding="utf-8") as f:
             f.write(post_content)
-            
-        print(f"✅ Post created: {product_name}")
+        print(f"✅ Sifted: {product_name}")
         
     except Exception as e:
         print(f"❌ Error: {e}")
