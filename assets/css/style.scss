@@ -1,7 +1,41 @@
 ---
 ---
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --card-bg: #fafafa;
+  --border-color: #eeeeee;
+  --footer-bg: linear-gradient(180deg, #111111 0%, #000000 100%);
+}
 
-// ... (keep your root variables and body styles)
+[data-theme="dark"] {
+  --bg-color: #0a0a0a;
+  --text-color: #f5f5f5;
+  --card-bg: #141414;
+  --border-color: #222222;
+}
+
+[data-theme="midnight"] {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+}
+
+[data-theme="forest"] {
+  --bg-color: #064e3b;
+  --text-color: #ecfdf5;
+  --card-bg: #065f46;
+  --border-color: #047857;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
 
 .container {
   max-width: 1000px;
@@ -9,54 +43,52 @@
   padding: 0 20px;
 }
 
-// THE "ELITE" CENTERED FOOTER
+// THE TWO-BLOCK GRID
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 60px 0;
+}
+
+.post-card {
+  text-decoration: none;
+  color: inherit;
+  .post-image {
+    width: 100%;
+    height: 350px;
+    background: var(--card-bg);
+    overflow: hidden;
+    border-radius: 2px;
+    img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  }
+  &:hover img { transform: scale(1.05); }
+  h2 { font-size: 1.5rem; margin-top: 15px; }
+}
+
 .site-footer {
   background: var(--footer-bg);
-  color: #fff;
-  padding: 100px 0 60px 0;
+  padding: 100px 0;
   text-align: center;
-  border-top: 1px solid var(--border-color);
+}
 
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
+.footer-divider {
+  width: 50px;
+  height: 1px;
+  background: #333;
+  margin: 20px auto;
+}
 
-  h4 { 
-    color: #fff; 
-    text-transform: uppercase; 
-    font-size: 0.75rem; 
-    letter-spacing: 2px; 
-    margin: 0 0 20px 0;
-  }
+.buy-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: var(--text-color);
+  color: var(--bg-color) !important;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
 
-  // Centered Horizontal Link Groups
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-wrap: wrap;
-
-    a { 
-      color: #777; 
-      text-decoration: none; 
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      
-      &:hover { color: #fff; }
-    }
-  }
-
-  .footer-divider {
-    width: 40px;
-    height: 1px;
-    background: #333;
-    margin: 20px auto;
-  }
+@media (max-width: 768px) {
+  .post-grid { grid-template-columns: 1fr; }
 }
