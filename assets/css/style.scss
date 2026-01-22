@@ -1,66 +1,84 @@
 ---
 ---
+/* 1. ARCHITECTURAL VARIABLES */
 :root {
   --bg-color: #ffffff;
   --text-color: #111111;
   --border-color: #eeeeee;
   --muted-text: #666666;
-  --footer-bg: #f5f5f5; /* Distinct color pattern for footer */
+  --footer-bg: #f9f9f9; /* Distinct footer variation */
   --max-width: 1100px;
+  --hero-height: 420px;
 }
 
 [data-theme="dark"], [data-theme="graphite"] {
   --bg-color: #0c0c0c;
   --text-color: #ffffff;
   --border-color: #222222;
-  --footer-bg: #141414;
+  --footer-bg: #141414; /* Darker footer variation */
 }
 
+/* 2. GLOBAL RESET & CENTERING */
 body {
     margin: 0; padding: 0;
     background: var(--bg-color);
     color: var(--text-color);
     font-family: 'Inter', sans-serif;
     display: flex; flex-direction: column; align-items: center;
+    transition: background 0.3s ease;
 }
 
-/* THE 1100px CONTAINER LOCK */
 .site-wrapper {
     width: 100%;
-    max-width: var(--max-width);
+    max-width: var(--max-width); /* Locks content to 1100px width */
     padding: 0 20px;
     box-sizing: border-box;
 }
 
-/* HEADER ALIGNMENT: LOGO LEFT, NAV RIGHT */
+/* 3. HEADER: POSITIONED AT OUTER EDGES */
+.main-header {
+    width: 100%;
+}
+
 .header-flex {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 0;
+    justify-content: space-between; /* Pushes Logo left, Nav right */
+    align-items: baseline;
+    padding: 60px 0 40px 0;
 }
 
 .logo {
-    font-size: 2.5rem; /* Enhanced size per request */
+    font-size: 3rem; /* Enhanced stylized font size */
     font-weight: 800;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
     text-decoration: none;
     color: var(--text-color);
+    
+    /* FADE-IN ANIMATION */
+    opacity: 0;
+    animation: fadeInLogo 1.2s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInLogo {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .main-nav {
     display: flex;
-    gap: 25px;
+    gap: 30px;
     align-items: center;
 }
 
 .main-nav a, #theme-cycle {
-    font-size: 0.95rem; /* Enhanced size per request */
+    font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--text-color);
     background: none; border: none; cursor: pointer;
+    letter-spacing: 1px;
 }
 
 #theme-cycle {
@@ -70,15 +88,15 @@ body {
     border-radius: 4px;
 }
 
-/* HERO DISCIPLINE: SAME SIZE AS TWO BLOCKS BELOW */
+/* 4. HERO SECTION: WIDTH OF TWO BLOCKS */
 .latest-analysis-hero {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .hero-image-container {
     width: 100%;
-    height: 420px; /* Rigid cinematic height lock */
+    height: var(--hero-height); /* Strict cinematic constraint */
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -89,13 +107,44 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Prevents image ballooning */
+    opacity: 0.85;
 }
 
-/* FOOTER: DISTINCT COLOR & ALIGNMENT FIX */
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95));
+}
+
+.hero-title {
+    color: #ffffff !important;
+    font-size: 2.8rem;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+/* 5. TWO-BLOCK GRID */
+.post-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Exact two-block split */
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.post-card { text-decoration: none; color: inherit; display: block; }
+.post-image { width: 100%; aspect-ratio: 16/9; border-radius: 4px; overflow: hidden; margin-bottom: 15px; }
+.post-image img { width: 100%; height: 100%; object-fit: cover; }
+.post-title { font-size: 1.4rem; font-weight: 700; color: var(--text-color) !important; margin: 10px 0; }
+
+/* 6. CENTERED FOOTER: DISTINCT PATTERN */
 .main-footer {
     width: 100%;
-    background: var(--footer-bg);
-    padding: 80px 0;
+    background: var(--footer-bg); /* Use distinct variation color */
+    padding: 100px 0;
     margin-top: 100px;
     border-top: 1px solid var(--border-color);
     display: flex;
@@ -104,17 +153,23 @@ body {
 
 .footer-inner {
     width: 100%;
-    max-width: 700px;
-    text-align: center; /* Fixes left-to-right mess */
+    max-width: 650px;
+    text-align: center; /* Fixes left-to-right alignment */
 }
+
+.footer-inner h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+.footer-inner p { color: var(--muted-text); font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px; }
+
+.social-bar { display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; }
+.social-bar a { color: var(--text-color); text-decoration: none; font-weight: 800; font-size: 0.9rem; }
 
 .footer-legal-links {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     list-style: none;
     padding: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .footer-legal-links a {
@@ -122,4 +177,19 @@ body {
     color: var(--muted-text);
     font-size: 0.8rem;
     font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer-divider {
+    height: 1px; width: 60px; background: var(--border-color); margin: 0 auto 40px auto;
+}
+
+.copyright { font-size: 0.7rem; color: var(--muted-text); text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 850px) {
+    .header-flex { flex-direction: column; text-align: center; gap: 20px; }
+    .post-grid { grid-template-columns: 1fr; }
+    .hero-image-container { height: 320px; }
+    .hero-title { font-size: 1.8rem; }
 }
