@@ -3,63 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | The Sift{% else %}The Sift | Curated Tech for High-End Workspaces{% endif %}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <title>{% if page.title %}{{ page.title }} | THE SIFT{% else %}THE SIFT | Elite Productivity Gear{% endif %}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | prepend: site.baseurl }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header style="padding: 30px 0; border-bottom: 1px solid #eee; background: #fff;">
-        <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
-            <a href="{{ '/' | relative_url }}" style="text-decoration: none; color: #000;">
-                <strong style="font-size: 1.5rem; letter-spacing: -1.5px; text-transform: uppercase;">THE SIFT</strong>
+    <header style="padding: 25px 0; border-bottom: 1px solid var(--border-color); background: var(--bg-color); transition: background 0.3s ease;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="{{ '/' | relative_url }}" style="text-decoration: none; color: var(--text-color);">
+                <strong style="font-size: 1.4rem; letter-spacing: -1.5px; text-transform: uppercase; font-weight: 800;">THE SIFT</strong>
             </a>
-            <nav>
-                <a href="{{ '/' | relative_url }}" style="margin-left: 20px; text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem;">Home</a>
-                <a href="{{ '/advertise' | relative_url }}" style="margin-left: 20px; text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem;">Advertise</a>
+            <nav style="display: flex; align-items: center;">
+                <a href="{{ '/' | relative_url }}" style="margin-left: 25px; text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Home</a>
+                <a href="{{ '/advertise' | relative_url }}" style="margin-left: 25px; text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Advertise</a>
+                <button id="theme-toggle" style="margin-left: 25px;">Dark Mode</button>
             </nav>
         </div>
     </header>
 
-    <main style="max-width: 1000px; margin: 0 auto; padding: 40px 20px; min-height: 60vh;">
+    <main style="min-height: 70vh;">
         <div class="content-wrapper">
             {{ content }}
         </div>
     </main>
 
-    <footer class="site-footer" style="margin-top: 80px; padding: 60px 0; background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 100%); border-top: 1px solid #eee;">
-      <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+    <footer class="site-footer">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 60px;">
           
           <div class="footer-section">
-            <h4 style="margin-bottom: 15px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase;">About The Sift</h4>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #666;">Our mission is to help digital natives find the absolute best productivity gear through AI-driven analysis and expert sifting.</p>
+            <h4>About The Sift</h4>
+            <p>Curating the absolute best productivity gear through AI-driven analysis for the modern professional setup.</p>
           </div>
 
           <div class="footer-section">
-            <h4 style="margin-bottom: 15px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase;">Navigation</h4>
-            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2;">
-              <li><a href="{{ '/privacy-policy' | relative_url }}" style="text-decoration: none; color: #666;">Privacy Policy</a></li>
-              <li><a href="{{ '/terms' | relative_url }}" style="text-decoration: none; color: #666;">Terms of Use</a></li>
-              <li><a href="{{ '/advertise' | relative_url }}" style="text-decoration: none; color: #666;">Advertise</a></li>
+            <h4>Navigation</h4>
+            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2.2;">
+              <li><a href="{{ '/privacy-policy' | relative_url }}">Privacy Policy</a></li>
+              <li><a href="{{ '/terms' | relative_url }}">Terms of Use</a></li>
+              <li><a href="{{ '/advertise' | relative_url }}">Advertise</a></li>
             </ul>
           </div>
 
           <div class="footer-section">
-            <h4 style="margin-bottom: 15px; font-weight: 800; font-size: 0.9rem; text-transform: uppercase;">Legal</h4>
-            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2;">
-              <li><a href="{{ '/accessibility' | relative_url }}" style="text-decoration: none; color: #666;">Accessibility</a></li>
-              <li><a href="{{ '/privacy-policy#opt-out' | relative_url }}" style="text-decoration: none; color: #666;">Do Not Sell My Personal Information</a></li>
+            <h4>Legal</h4>
+            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2.2;">
+              <li><a href="{{ '/accessibility' | relative_url }}">Accessibility</a></li>
+              <li><a href="{{ '/privacy-policy#opt-out' | relative_url }}">Opt Out</a></li>
             </ul>
           </div>
 
         </div>
 
-        <div style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 1px;">
-          &copy; 2026 THE SIFT. ALL RIGHTS RESERVED. BUILT FOR THE MODERN PROFESSIONAL.
+        <div style="margin-top: 80px; padding-top: 30px; border-top: 1px solid #333; text-align: center; font-size: 0.7rem; color: #666; letter-spacing: 2px; text-transform: uppercase;">
+          &copy; 2026 THE SIFT. Built for peak performance.
         </div>
       </div>
     </footer>
 
+    <script>
+      const toggleBtn = document.getElementById('theme-toggle');
+      const currentTheme = localStorage.getItem('theme');
+
+      // Check for saved user preference
+      if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') toggleBtn.textContent = 'Light Mode';
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          toggleBtn.textContent = 'Dark Mode';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          toggleBtn.textContent = 'Light Mode';
+        }
+      });
+    </script>
 </body>
 </html>
