@@ -1,103 +1,53 @@
----
----
-:root {
-  --bg-color: #ffffff;
-  --text-color: #111111;
-  --border-color: #eeeeee;
-  --muted-text: #666666;
-  --footer-bg: #f9f9f9; /* Distinct variation for footer */
-  --max-width: 1100px;
+/* 1. FORCE HEADER FLEX FOR LEFT-ALIGNED LOGO */
+.header-flex {
+    display: flex;
+    justify-content: space-between; /* Pushes Logo left and Nav right */
+    align-items: baseline;
+    padding: 40px 0;
 }
 
-[data-theme="dark"], [data-theme="graphite"] {
-  --bg-color: #0c0c0c;
-  --text-color: #ffffff;
-  --border-color: #222222;
-  --footer-bg: #141414; /* Darker variation for dark mode */
-}
-
-body {
-    margin: 0; padding: 0;
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Inter', sans-serif;
-    display: flex; flex-direction: column; align-items: center;
-}
-
-.site-wrapper { width: 100%; max-width: var(--max-width); padding: 0 20px; box-sizing: border-box; }
-
-/* HEADER: RESTORED & ENHANCED TASTEFUL POSITIONING */
-.main-header {
-    width: 100%; padding: 60px 0 40px 0;
-    text-align: center;
-}
 .logo {
-    display: block;
-    font-size: 3.5rem; /* Increased and stylized */
+    font-size: 2.2rem;
     font-weight: 800;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     text-decoration: none;
     color: var(--text-color);
-    margin-bottom: 20px;
-}
-.main-nav { 
-    display: flex; justify-content: center; gap: 30px; align-items: center; 
-}
-.main-nav a, #theme-cycle { 
-    text-decoration: none; color: var(--text-color); 
-    font-size: 0.9rem; /* Increased font size per request */
-    font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-    background: none; border: none; cursor: pointer; padding: 0;
 }
 
-/* HERO LOCK (ANTI-BALLOON) */
-.latest-analysis-hero { width: 100%; margin: 20px 0 50px 0; }
+/* 2. THE LATEST SIFT: LOCKED TO 1100px (Size of two blocks) */
+.latest-analysis-hero {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
 .hero-image-container {
-    width: 100%; height: 420px; /* Rigid constraint */
-    border-radius: 4px; overflow: hidden; position: relative; background: #000;
+    width: 100%;
+    height: 420px; /* Rigid cinematic height */
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
 }
-.hero-image-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
-.hero-overlay { 
-    position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; 
-    background: linear-gradient(transparent, rgba(0,0,0,0.9)); 
-}
-.hero-title { color: #fff !important; font-size: 2.6rem; margin: 0; letter-spacing: -1.5px; font-weight: 800; }
 
-/* CENTERED CONTENT (TERMS/PRIVACY/POSTS) */
-.centered-page-content {
-    max-width: 850px; margin: 60px auto; text-align: center;
-    line-height: 1.8;
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents ballooning by cropping to the container */
 }
-.centered-page-content h1 { font-size: 3rem; margin-bottom: 30px; letter-spacing: -2px; }
 
-/* THE FOOTER: DISTINCT COLOR & PERFECT CENTERING */
+/* 3. DISTINCT FOOTER VARIATION */
 .main-footer {
-    width: 100%; padding: 100px 0; margin-top: 100px;
-    background: var(--footer-bg); /* Distinct pattern variation */
+    width: 100%;
+    background: var(--footer-bg); /* Use the variation color we defined */
+    padding: 80px 0;
+    margin-top: 100px;
     border-top: 1px solid var(--border-color);
-    display: flex; flex-direction: column; align-items: center;
-}
-.footer-inner { 
-    width: 100%; max-width: 700px; 
-    text-align: center; /* Ensures content isn't left-to-right */
-}
-.footer-inner h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; }
-.footer-inner p { color: var(--muted-text); font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px; }
-
-.social-bar { display: flex; justify-content: center; gap: 30px; margin: 20px 0 50px 0; }
-.social-bar a { color: var(--text-color); text-decoration: none; font-weight: 800; font-size: 0.9rem; }
-
-.footer-legal-links { 
-    display: flex; justify-content: center; gap: 30px; list-style: none; padding: 0; margin-bottom: 30px; 
-}
-.footer-legal-links a { 
-    text-decoration: none; color: var(--muted-text); 
-    font-size: 0.8rem; font-weight: 700; text-transform: uppercase; 
+    display: flex;
+    justify-content: center; /* Ensures the inner footer is centered */
 }
 
-.copyright { font-size: 0.7rem; color: var(--muted-text); text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
-
-@media (max-width: 850px) {
-    .logo { font-size: 2.5rem; }
-    .hero-image-container { height: 320px; }
+.footer-inner {
+    width: 100%;
+    max-width: 650px; /* Constrains text width for a premium feel */
+    text-align: center;
 }
