@@ -2,28 +2,28 @@
 layout: default
 ---
 <article class="post-container">
-    <a href="{{ site.baseurl }}/" style="text-decoration: none; color: var(--muted-text); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">&larr; Back to Sift</a>
+    <a href="{{ site.baseurl }}/" style="text-decoration: none; color: var(--muted-text); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">&larr; Back to Sift</a>
 
-    <h1 style="font-size: 2.5rem; margin: 30px 0 10px 0; letter-spacing: -1px;">{{ page.title }}</h1>
-    <p style="color: var(--muted-text); margin-bottom: 40px;">Sifted on {{ page.date | date: "%B %d, %Y" }}</p>
-
-    <div class="share-bar" style="margin-bottom: 40px; display: flex; gap: 15px; border-top: 1px solid var(--border-color); padding-top: 20px;">
-        <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--muted-text);">Share:</span>
-        <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" target="_blank" class="share-link">X / Twitter</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" class="share-link">Facebook</a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank" class="share-link">LinkedIn</a>
+    <h1 style="font-size: 2.2rem; margin: 25px 0 10px 0;">{{ page.title }}</h1>
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding: 15px 0; margin-bottom: 30px;">
+        <div style="display: flex; gap: 15px;">
+            <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}" target="_blank" style="text-decoration: none; font-size: 0.8rem; color: var(--text-color);">Share on X</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank" style="text-decoration: none; font-size: 0.8rem; color: var(--text-color);">LinkedIn</a>
+        </div>
+        
+        <div id="feedback-widget" style="display: flex; gap: 10px; align-items: center;">
+            <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted-text);">Helpful?</span>
+            <button onclick="alert('Thanks for your feedback!')" style="background: none; border: 1px solid var(--border-color); cursor: pointer; border-radius: 4px; padding: 4px 8px;">👍</button>
+            <button onclick="alert('Thanks for your feedback!')" style="background: none; border: 1px solid var(--border-color); cursor: pointer; border-radius: 4px; padding: 4px 8px;">👎</button>
+        </div>
     </div>
 
-    <div class="video-container" style="margin-bottom: 40px; border-radius: 8px; overflow: hidden; background: #000;">
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="video-container" style="margin-bottom: 30px; border-radius: 4px; overflow: hidden; background: #000; aspect-ratio: 16/9;">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="post-content" style="font-size: 1.1rem; line-height: 1.8;">
+    <div class="post-content" style="line-height: 1.8;">
         {{ content }}
     </div>
 </article>
-
-<style>
-    .share-link { font-size: 0.75rem; text-decoration: none; color: var(--text-color); font-weight: 600; }
-    .share-link:hover { text-decoration: underline; }
-</style>
