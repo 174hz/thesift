@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | THE SIFT{% else %}THE SIFT{% endif %}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -19,19 +20,28 @@
     </header>
 
     <main class="site-wrapper">
-        <article class="post-content">
-            {{ content }}
-        </article>
+        {{ content }}
     </main>
 
     <footer class="main-footer">
         <div class="footer-inner">
+            <div class="about-sifter">
+                <h3>About The Sifter</h3>
+                <p>A disciplined exploration of high-end productivity tools. We analyze the intersection of industrial design and digital performance for the modern professional.</p>
+            </div>
+            <div class="social-bar">
+                <a href="#">X</a>
+                <a href="#">LINKEDIN</a>
+                <a href="#">INSTAGRAM</a>
+                <a href="#">YOUTUBE</a>
+            </div>
             <div class="footer-divider"></div>
-            <ul class="footer-legal-links" style="display:flex; justify-content:center; gap:30px; list-style:none; padding:0; margin:30px 0;">
-                <li><a href="{{ '/privacy-policy' | relative_url }}" style="text-decoration:none; color:var(--muted-text); font-weight:700; font-size:0.8rem;">PRIVACY POLICY</a></li>
-                <li><a href="{{ '/terms' | relative_url }}" style="text-decoration:none; color:var(--muted-text); font-weight:700; font-size:0.8rem;">TERMS OF USE</a></li>
+            <ul class="footer-legal-links">
+                <li><a href="{{ site.baseurl }}/">HOME</a></li>
+                <li><a href="{{ '/privacy-policy' | relative_url }}">PRIVACY POLICY</a></li>
+                <li><a href="{{ '/terms' | relative_url }}">TERMS OF USE</a></li>
             </ul>
-            <p style="font-size:0.7rem; opacity:0.6;">&copy; 2026 THE SIFT. ALL RIGHTS RESERVED.</p>
+            <p class="copyright">&copy; 2026 THE SIFT. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
@@ -39,11 +49,11 @@
         const themes = ['light', 'dark', 'graphite'];
         let currentIdx = themes.indexOf(localStorage.getItem('theme') || 'light');
         document.documentElement.setAttribute('data-theme', themes[currentIdx]);
-
         document.getElementById('theme-cycle').addEventListener('click', () => {
             currentIdx = (currentIdx + 1) % themes.length;
-            document.documentElement.setAttribute('data-theme', themes[currentIdx]);
-            localStorage.setItem('theme', themes[currentIdx]);
+            const newTheme = themes[currentIdx];
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
     </script>
 </body>
