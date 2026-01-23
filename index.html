@@ -4,11 +4,10 @@ layout: default
 
 <section class="latest-analysis-hero">
   {% assign latest_post = site.posts.first %}
-  <a href="{{ latest_post.url | relative_url }}" class="hero-link">
+  <a href="{{ latest_post.url | relative_url }}">
     <div class="hero-image-container">
       <img src="{{ latest_post.image | relative_url }}" alt="{{ latest_post.title }}">
       <div class="hero-overlay">
-        <span class="hero-badge">Latest Sift</span>
         <h1 class="hero-title">{{ latest_post.title }}</h1>
       </div>
     </div>
@@ -18,15 +17,12 @@ layout: default
 <div class="post-grid">
   {% for post in site.posts offset:1 %}
     <article class="post-card">
-      <a href="{{ post.url | relative_url }}" class="card-link">
+      <a href="{{ post.url | relative_url }}" style="text-decoration:none; color:inherit;">
         <div class="post-image">
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
         </div>
-        <div class="post-meta">
-            <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
-            <h2 class="post-title">{{ post.title }}</h2>
-            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-        </div>
+        <p style="font-size:0.8rem; font-weight:700; opacity:0.5; margin-bottom:5px;">{{ post.date | date: "%B %d, %Y" }}</p>
+        <h2 style="font-size:1.4rem; font-weight:800; margin:0; letter-spacing:-0.5px;">{{ post.title }}</h2>
       </a>
     </article>
   {% endfor %}
