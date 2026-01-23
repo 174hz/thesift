@@ -4,15 +4,21 @@ layout: default
 <article class="post-article">
     <a href="{{ site.baseurl }}/" style="color: var(--muted-text); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase;">&larr; Back to Sift</a>
     
-    <h1 style="font-size: 2.8rem; margin: 20px 0; letter-spacing: -1.5px; font-weight: 800;">{{ page.title }}</h1>
+    <h1 style="font-size: 2.8rem; margin: 20px 0; letter-spacing: -1.5px; font-weight: 800; color: var(--text-color);">{{ page.title }}</h1>
     
     {% if page.youtube_id %}
     <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
     </div>
     {% endif %}
 
     <div class="post-content">
         {{ content }}
+    </div>
+
+    <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); display: flex; gap: 20px; align-items: center; justify-content: center;">
+        <span style="font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Helpful?</span>
+        <button onclick="alert('Feedback recorded.')" style="background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 5px 10px; cursor: pointer; border-radius: 4px;">👍</button>
+        <button onclick="alert('Feedback recorded.')" style="background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 5px 10px; cursor: pointer; border-radius: 4px;">👎</button>
     </div>
 </article>
