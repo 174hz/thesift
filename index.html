@@ -6,10 +6,15 @@ layout: default
   {% assign latest_post = site.posts.first %}
   <a href="{{ latest_post.url | relative_url }}" style="text-decoration: none;">
     <div style="width: 100%; height: 450px; position: relative; border-radius: 4px; overflow: hidden; background: #000;">
-      <img src="{{ latest_post.image | relative_url }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+      {% if latest_post.image %}
+        <img src="{{ latest_post.image | relative_url }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+      {% elsif latest_post.youtube_id %}
+        <img src="https://img.youtube.com/vi/{{ latest_post.youtube_id }}/maxresdefault.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+      {% endif %}
+      
       <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
         <span style="color: #fff; text-transform: uppercase; font-weight: 800; font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 2px;">Latest Sift</span>
-        <h1 style="color: #fff; font-size: 3rem; margin: 10px 0 0 0; letter-spacing: -2px; font-weight: 800; line-height: 1;">{{ latest_post.title }}</h1>
+        <h1 style="color: #fff; font-size: 3rem; margin: 10px 0 0 0; letter-spacing: -2px; font-weight: 800; line-height: 1.1;">{{ latest_post.title }}</h1>
       </div>
     </div>
   </a>
@@ -19,8 +24,14 @@ layout: default
   {% for post in site.posts offset:1 %}
     <article class="post-card">
       <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: inherit;">
-        <div class="post-image">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        <div class="post-image" style="width: 100%; aspect-ratio: 16/9; background: #1a1a1a; border-radius: 4px; overflow: hidden; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+          {% if post.image %}
+            <img src="{{ post.image | relative_url }}" style="width: 100%; height: 100%; object-fit: cover;">
+          {% elsif post.youtube_id %}
+            <img src="https://img.youtube.com/vi/{{ post.youtube_id }}/maxresdefault.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+          {% else %}
+            <span style="color: #333; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px;">SIFT</span>
+          {% endif %}
         </div>
         <p style="font-size: 0.8rem; font-weight: 700; opacity: 0.5; text-transform: uppercase; margin-bottom: 5px;">{{ post.date | date: "%B %d, %Y" }}</p>
         <h2 style="font-size: 1.5rem; font-weight: 800; margin: 0; letter-spacing: -0.5px; line-height: 1.2;">{{ post.title }}</h2>
