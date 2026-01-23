@@ -1,24 +1,28 @@
 ---
 layout: default
 ---
-<article class="post-article">
+{% assign amazon_id = "YOUR_AMAZON_ID_HERE" %} <article class="post-article">
     <a href="{{ site.baseurl }}/" style="color: var(--muted-text); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase;">&larr; Back to Sift</a>
     
     <h1 style="font-size: 2.8rem; margin: 20px 0; letter-spacing: -1.5px; font-weight: 800; color: var(--text-color);">{{ page.title }}</h1>
     
-    {% if page.youtube_id %}
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
-    </div>
-    {% endif %}
+    <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start;">
+        <div class="video-container" style="flex: 3; min-width: 320px; margin: 0;">
+            <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="post-content">
+        {% if page.amazon_url %}
+        <div style="flex: 1; min-width: 220px; padding: 25px; border: 1px solid var(--border-color); border-radius: 8px; text-align: center; background: var(--bg-color);">
+            <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; opacity: 0.5;">Product Link</p>
+            
+            <a href="{{ page.amazon_url }}?tag={{ amazon_id }}" target="_blank" style="background: #FF9900; color: #000; padding: 14px; text-decoration: none; border-radius: 4px; font-weight: 800; font-size: 0.9rem; display: block; width: 100%; box-sizing: border-box;">View on Amazon</a>
+            
+            <p style="font-size: 0.6rem; margin-top: 12px; line-height: 1.4; opacity: 0.4;">*As an Amazon Associate, I earn from qualifying purchases.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="post-content" style="margin-top: 50px; line-height: 1.8; font-size: 1.1rem; max-width: 800px;">
         {{ content }}
-    </div>
-
-    <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); display: flex; gap: 20px; align-items: center; justify-content: center;">
-        <span style="font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Helpful?</span>
-        <button onclick="alert('Feedback recorded.')" style="background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 5px 10px; cursor: pointer; border-radius: 4px;">👍</button>
-        <button onclick="alert('Feedback recorded.')" style="background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 5px 10px; cursor: pointer; border-radius: 4px;">👎</button>
     </div>
 </article>
