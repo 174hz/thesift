@@ -2,13 +2,14 @@
 layout: default
 ---
 
-<section class="latest-analysis-hero">
+<section class="latest-analysis-hero" style="margin-bottom: 50px;">
   {% assign latest_post = site.posts.first %}
-  <a href="{{ latest_post.url | relative_url }}">
-    <div class="hero-image-container">
-      <img src="{{ latest_post.image | relative_url }}" alt="{{ latest_post.title }}">
-      <div class="hero-overlay">
-        <h1 class="hero-title">{{ latest_post.title }}</h1>
+  <a href="{{ latest_post.url | relative_url }}" style="text-decoration: none;">
+    <div style="width: 100%; height: 450px; position: relative; border-radius: 4px; overflow: hidden; background: #000;">
+      <img src="{{ latest_post.image | relative_url }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+      <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+        <span style="color: #fff; text-transform: uppercase; font-weight: 800; font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 2px;">Latest Sift</span>
+        <h1 style="color: #fff; font-size: 3rem; margin: 10px 0 0 0; letter-spacing: -2px; font-weight: 800; line-height: 1;">{{ latest_post.title }}</h1>
       </div>
     </div>
   </a>
@@ -17,12 +18,12 @@ layout: default
 <div class="post-grid">
   {% for post in site.posts offset:1 %}
     <article class="post-card">
-      <a href="{{ post.url | relative_url }}" style="text-decoration:none; color:inherit;">
+      <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: inherit;">
         <div class="post-image">
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
         </div>
-        <p style="font-size:0.8rem; font-weight:700; opacity:0.5; margin-bottom:5px;">{{ post.date | date: "%B %d, %Y" }}</p>
-        <h2 style="font-size:1.4rem; font-weight:800; margin:0; letter-spacing:-0.5px;">{{ post.title }}</h2>
+        <p style="font-size: 0.8rem; font-weight: 700; opacity: 0.5; text-transform: uppercase; margin-bottom: 5px;">{{ post.date | date: "%B %d, %Y" }}</p>
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin: 0; letter-spacing: -0.5px; line-height: 1.2;">{{ post.title }}</h2>
       </a>
     </article>
   {% endfor %}
