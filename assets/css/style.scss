@@ -6,7 +6,7 @@
   --border-color: #eeeeee;
   --muted-text: #666666;
   --footer-bg: #f9f9f9; 
-  --max-width: 1100px; /* Logo and Hero align to this edge */
+  --max-width: 1100px; /* Aligns Logo, Hero, and Grid edges */
 }
 
 [data-theme="dark"] {
@@ -24,7 +24,6 @@ body {
     display: flex; flex-direction: column; align-items: center;
 }
 
-/* MASTER ALIGNMENT: Logo & Hero edge-lock */
 .site-wrapper {
     width: 100%;
     max-width: var(--max-width);
@@ -32,6 +31,7 @@ body {
     box-sizing: border-box;
 }
 
+/* HEADER: ALIGNED TO GRID EDGES */
 .header-flex {
     display: flex;
     justify-content: space-between;
@@ -40,7 +40,7 @@ body {
 }
 
 .logo {
-    font-size: 3.2rem; /* Increased size per request */
+    font-size: 3.2rem;
     font-weight: 800;
     letter-spacing: -3px;
     text-decoration: none;
@@ -54,46 +54,33 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.main-nav {
-    display: flex; gap: 30px; align-items: center;
-}
-
+.main-nav { display: flex; gap: 30px; align-items: center; }
 .main-nav a, #theme-cycle {
     font-size: 1rem; font-weight: 700; text-transform: uppercase;
     text-decoration: none; color: var(--text-color);
     background: none; border: none; cursor: pointer;
 }
 
-/* VIDEO FIX: Full-Width Immersion */
+/* THE TWO-BLOCK GRID FIX */
+.post-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* This creates the two-block look */
+    gap: 40px; /* Spacing between the blocks */
+    margin-top: 40px;
+}
+
+/* VIDEO: LARGE & IMMERSIVE */
 .video-container {
-    width: 100%; 
-    max-width: 100%; /* Removes any shrinking */
+    width: 100%;
     aspect-ratio: 16 / 9;
     margin: 40px 0;
     background: #000;
     border-radius: 4px;
     overflow: hidden;
-    display: block;
 }
+.video-container iframe { width: 100%; height: 100%; border: none; }
 
-.video-container iframe {
-    width: 100% !important;
-    height: 100% !important;
-    border: none;
-}
-
-/* POST CONTENT: Ensuring text doesn't squeeze video */
-.post-content {
-    width: 100%;
-}
-
-.post-content p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-/* GRID & HERO */
+/* HERO LOCK */
 .latest-analysis-hero { width: 100%; margin-bottom: 50px; }
 .hero-image-container { 
     width: 100%; height: 420px; border-radius: 4px; 
@@ -101,10 +88,10 @@ body {
 }
 .hero-image-container img { width: 100%; height: 100%; object-fit: cover; }
 
-/* FOOTER: Centered & Patterned */
+/* FOOTER */
 .main-footer {
     width: 100%; background: var(--footer-bg);
-    padding: 100px 0; border-top: 1px solid var(--border-color);
+    padding: 100px 0; margin-top: 80px; border-top: 1px solid var(--border-color);
     display: flex; justify-content: center;
 }
 .footer-inner { width: 100%; max-width: 700px; text-align: center; }
