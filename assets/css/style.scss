@@ -19,67 +19,107 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     font-family: 'Inter', sans-serif;
+    display: flex; flex-direction: column; align-items: center;
 }
 
 .site-wrapper {
     width: 100%;
     max-width: var(--max-width);
     padding: 0 20px;
-    margin: 0 auto; /* Keeps everything centered and aligned */
     box-sizing: border-box;
 }
 
-/* LOGO & NAV ALIGNMENT */
+/* HEADER FIX: Anchored Logo and Buttons */
 .header-flex {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    padding: 60px 0 40px 0;
+    align-items: center;
+    padding: 40px 0;
+    width: 100%;
 }
 
 .logo {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 800;
     letter-spacing: -3px;
     text-decoration: none;
     color: var(--text-color);
 }
 
-/* THE VIDEO POWERHOUSE */
+.main-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#theme-cycle {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+/* VIDEO: FULL POWERHOUSE WIDTH */
 .video-container {
-    width: 100% !important; /* Forces video to match text width */
+    width: 100%;
     aspect-ratio: 16 / 9;
-    margin: 40px 0;
+    margin: 30px 0;
     background: #000;
     border-radius: 4px;
     overflow: hidden;
 }
+.video-container iframe { width: 100%; height: 100%; border: none; }
 
-.video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* THUMBNAIL GRID */
+/* GRID & THUMBNAILS: VISIBILITY LOCK */
 .post-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 40px;
+    margin-bottom: 80px;
 }
-
 .post-image {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #f0f0f0; /* Shows gray box if image fails */
+    aspect-ratio: 16/9;
+    background: #f0f0f0;
     border-radius: 4px;
     overflow: hidden;
+    margin-bottom: 15px;
 }
-
 .post-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* FOOTER: CENTERED DISCIPLINE */
+.main-footer {
+    width: 100%;
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    background: var(--bg-color);
+}
+.footer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.footer-legal-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.footer-legal-links a {
+    text-decoration: none;
+    color: var(--muted-text);
+    font-weight: 700;
+    font-size: 0.8rem;
 }
