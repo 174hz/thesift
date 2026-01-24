@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TheSift: BenQ ScreenBar Halo Analysis"
+title: "The Sift: BenQ ScreenBar Halo Analysis"
 youtube_id: 0VKXzAPBU58
 amazon_url: "https://www.amazon.com/dp/B09C159N87"
 ---
