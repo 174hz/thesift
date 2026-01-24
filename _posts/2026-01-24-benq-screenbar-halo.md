@@ -2,7 +2,7 @@
 layout: post
 title: "The Sift: BenQ ScreenBar Halo Analysis"
 date: 2026-01-24
-youtube_id: "m4m9WnF8_S4"
+youtube_id: "0VKXzAPBU58" 
 ---
 
 The BenQ ScreenBar Halo isn't just a monitor light; it's a meticulously engineered object of desire. From the moment you unbox it, the refined industrial design speaks volumes. The sleek, minimalist form factor, crafted from premium materials, elegantly perches atop your monitor, adding a touch of understated luxury to your workspace. The wireless control dial, a heavy, cold-forged aluminum puck, feels reassuringly solid in your hand, offering tactile precision in adjusting brightness and color temperature.
