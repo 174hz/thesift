@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TheSift: BenQ ScreenBar Halo Analysis"
+title: "The Sift: BenQ ScreenBar Halo Analysis"
 date: 2026-01-24
 youtube_id: "m4m9WnF8_S4"
 ---
