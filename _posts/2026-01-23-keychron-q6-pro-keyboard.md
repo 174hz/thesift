@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TheSift: Keychron Q6 Pro Keyboard Analysis"
+title: "The Sift: Keychron Q6 Pro Keyboard Analysis"
 youtube_id: uGUkhsvQCs8
 amazon_url: "https://amzn.to/3NztUg9"
 ---
