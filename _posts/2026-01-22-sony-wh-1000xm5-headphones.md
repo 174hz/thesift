@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Sift: Sony WH-1000XM5 Headphones Analysis"
-youtube_id: 0wS_56mOxhg
+youtube_id: eMqUiNx3-xo
 amazon_url: "https://amzn.to/4gH5XzC"
 ---
 
