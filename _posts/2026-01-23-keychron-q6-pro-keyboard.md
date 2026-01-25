@@ -2,7 +2,7 @@
 layout: post
 title: "TheSift: Keychron Q6 Pro Keyboard Analysis"
 youtube_id: uGUkhsvQCs8
-amazon_url: "https://www.amazon.com/dp/B0C3G7Z9J2"
+amazon_url: "https://amzn.to/3NztUg9"
 ---
 
 The Keychron Q6 Pro represents the pinnacle of mass-produced mechanical keyboards for the enthusiast professional. Featuring a full-metal CNC machined body and a double-gasket mount design, it offers a typing experience that is both tactile and acoustically pleasing. Our 'Sift' finds that the weight of the aluminum chassis provides a level of stability that plastic-framed alternatives simply cannot match, making it a permanent fixture on any high-end desk.
