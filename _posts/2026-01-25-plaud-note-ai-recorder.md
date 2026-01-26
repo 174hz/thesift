@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "The Sift: Plaud Note AI Voice Recorder Review"
-youtube_id: OTp27kl4zCs
-amazon_url: "https://amzn.to/3ZInEwa"
+youtube_id: _mQ14LSQmGI
+amazon_url: "https://amzn.to/4sZFh13"
 ---
 
 The Plaud Note has gone viral on LinkedIn and YouTube over the last 48 hours as the "ultimate meeting assistant." This credit-card-thin device magnetically attaches to the back of an iPhone and uses a dual-engine AI to record and transcribe conversations with nearly 99% accuracy. What’s driving the conversation is its ability to not just transcribe, but to generate structured mind maps and action-item lists immediately after a meeting ends.
