@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Sift: Asus ROG Strix Scope II 96 Wireless Analysis"
-youtube_id: QakqHwkB0DU
+youtube_id: 9W7wc0IKg6w
 amazon_url: "https://amzn.to/3ZInEwa"
 ---
 
