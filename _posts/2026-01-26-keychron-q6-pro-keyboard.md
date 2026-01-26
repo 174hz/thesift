@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "TheSift: Keychron Q6 Pro Keyboard Analysis"
-date: 2026-01-26
-youtube_id: "7C_hE0-E6_M"
+title: "The Sift: Keychron Q6 Pro Keyboard Analysis"
+youtube_id: 7C_hE0-E6_M
+amazon_url: "https://amzn.to/4pZD0jO"
 ---
 
 The Keychron Q6 Pro is not just a keyboard; it’s a statement. Its industrial design exudes confidence, a monolithic block of CNC-machined aluminum that whispers precision. The heft is immediately reassuring, grounding the keyboard firmly on any surface, eliminating unwanted flex or movement. The anodized finish is flawless, resisting fingerprints and lending a subtle sheen that elevates the aesthetic.
