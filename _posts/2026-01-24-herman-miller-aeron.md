@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "The Sift: Herman Miller Aeron Chair Analysis"
-youtube_id: h_mD_3iYvC8
-amazon_url: "https://amzn.to/3ZInEwa"
+youtube_id: uj13Vjup6lw
+amazon_url: "https://amzn.to/45vRJLW"
 ---
 
 The Aeron. An icon, a benchmark, a whisper of the future that arrived decades ago. Its enduring presence in the workspace isn't mere trend; it's a testament to unparalleled design and engineering. The chair's skeletal structure, visible and celebrated, exemplifies a brutalist aesthetic softened by organic curves. Pellicle suspension replaces traditional upholstery, offering a conforming, weightless experience. The chair breathes, adapting to the micro-movements of the body, a feat of material science seamlessly integrated into human-centric design.
