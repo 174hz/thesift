@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TheSift: Elgato Stream Deck MK.2 Analysis"
+title: "The Sift: Elgato Stream Deck MK.2 Analysis"
 date: 2026-01-23
 youtube_id: "jT2eiBaFYJU"
 ---
