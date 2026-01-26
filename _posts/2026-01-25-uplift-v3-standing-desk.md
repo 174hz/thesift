@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Sift: Uplift V3 Standing Desk Analysis"
+title: "The Sift: Uplift V3 Power, Stability & Style"
 youtube_id: vVyUEKAAVXw
 amazon_url: "https://amzn.to/3ZInEwa"
 ---
