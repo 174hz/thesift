@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Sift: Elgato Stream Deck Neo Analysis"
-youtube_id: EI7gxC_iI5A
+youtube_id: PJaqleK4lb0
 amazon_url: "https://amzn.to/3ZInEwa"
 ---
 
