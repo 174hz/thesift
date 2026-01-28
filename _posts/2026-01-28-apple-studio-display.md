@@ -1,12 +1,21 @@
 ---
 layout: post
-title: "The Sift: Apple Studio Display Analysis"
+title: "TheSift: Apple Studio Display Analysis"
 date: 2026-01-28
 youtube_id: "MvT03E_8i7k"
 amazon_url: "https://amzn.to/4pVZPVx"
 ---
 
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; margin-bottom: 30px; border-radius: 8px;">
+  <iframe 
+    src="https://www.youtube.com/embed/{{ page.youtube_id }}" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
   <div style="flex: 1; min-width: 300px;">
     <p>The Apple Studio Display is a masterclass in minimalist elegance. Its seamless, all-aluminum enclosure, hearkening back to the iconic Cinema Display, exudes a quiet sophistication that elevates any workspace. This isn’t just a monitor; it's a statement. The meticulously engineered hinge offers a smooth, precise tilt adjustment, holding its position with unwavering stability.</p>
 
