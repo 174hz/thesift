@@ -6,9 +6,9 @@ youtube_id: "MvT03E_8i7k"
 amazon_url: "https://amzn.to/4pVZPVx"
 ---
 
-<div style="width: 100%; aspect-ratio: 16/9; background: #000; margin-bottom: 30px; border-radius: 8px; overflow: hidden;">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MvT03E_8i7k" frameborder="0" allowfullscreen></iframe>
-</div>
+[![Watch the Apple Studio Display Analysis](https://img.youtube.com/vi/MvT03E_8i7k/maxresdefault.jpg)](https://www.youtube.com/watch?v=MvT03E_8i7k)
+
+<br>
 
 <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
   <div style="flex: 2; min-width: 300px;">
@@ -16,7 +16,7 @@ amazon_url: "https://amzn.to/4pVZPVx"
 
     <p>Beyond its aesthetic appeal, the Studio Display delivers a compelling visual experience. The 27-inch 5K Retina display boasts vibrant colors, exceptional clarity, and impressive brightness. The integrated A13 Bionic chip effortlessly handles processing for features like Center Stage and spatial audio, enhancing video calls and media consumption.</p>
 
-    <p>Craftsmanship is where the Studio Display truly shines. While the price point might raise eyebrows, you are paying for an exquisitely designed and meticulously crafted piece of technology that seamlessly integrates into the Apple ecosystem. It's a visually stunning and technically proficient display for those who value build quality above all else.</p>
+    <p>Craftsmanship is where the Studio Display truly shines. While the price point might raise eyebrows, you are paying for an exquisitely designed and meticulously crafted piece of technology that seamlessly integrates into the Apple ecosystem.</p>
   </div>
 
   <div style="flex: 1; min-width: 200px; text-align: center; padding: 25px; border: 1px solid #333; border-radius: 8px; background: #111;">
